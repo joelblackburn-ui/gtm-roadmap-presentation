@@ -28,11 +28,19 @@
             --zinc-success: #27ae60;
             --zinc-warning: #e67e22;
             --zinc-error: #e74c3c;
+
+            /* Proportional spacing scale */
+            --space-xs: 0.5rem;
+            --space-sm: 0.75rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
         }
 
         html {
-            /* Base unit that scales with viewport - all em values derive from this */
-            font-size: clamp(10px, min(1.8vh, 1.1vw), 20px);
+            /* Scale base font with viewport, but with sensible bounds */
+            font-size: clamp(14px, 1.6vmin, 22px);
         }
 
         body {
@@ -55,7 +63,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            padding: 3.5em 4em;
+            padding: var(--space-2xl) var(--space-2xl);
             display: none;
             flex-direction: column;
             background: var(--zinc-tint);
@@ -74,9 +82,9 @@
 
         .slide-number {
             position: absolute;
-            bottom: 1.5em;
-            right: 2em;
-            font-size: 0.85em;
+            bottom: var(--space-lg);
+            right: var(--space-xl);
+            font-size: 0.875rem;
             color: var(--zinc-gray);
             font-family: 'Maison Neue Mono', monospace;
             letter-spacing: 0.5px;
@@ -84,19 +92,20 @@
 
         .logo {
             position: absolute;
-            top: 1.5em;
-            left: 2em;
+            top: var(--space-lg);
+            left: var(--space-xl);
         }
 
         .logo img {
-            height: 2.2em;
+            height: 2rem;
             width: auto;
         }
 
+        /* Typography scale - proportional ratios */
         h1 {
-            font-size: 3.2em;
+            font-size: clamp(2rem, 4vmin, 3.5rem);
             font-weight: 700;
-            margin-bottom: 0.3em;
+            margin-bottom: var(--space-sm);
             color: var(--zinc-dark);
             letter-spacing: -0.02em;
         }
@@ -104,9 +113,9 @@
         h1 span { color: var(--zinc-fluoro); }
 
         h2 {
-            font-size: 2.4em;
+            font-size: clamp(1.5rem, 3vmin, 2.5rem);
             font-weight: 600;
-            margin-bottom: 0.4em;
+            margin-bottom: var(--space-md);
             color: var(--zinc-dark);
             letter-spacing: -0.01em;
         }
@@ -114,29 +123,29 @@
         h2 span { color: var(--zinc-fluoro); }
 
         h3 {
-            font-size: 1.5em;
+            font-size: clamp(1.125rem, 2vmin, 1.5rem);
             font-weight: 600;
-            margin-bottom: 0.5em;
+            margin-bottom: var(--space-sm);
             color: var(--zinc-dark);
         }
 
         h4 {
-            font-size: 1.1em;
+            font-size: 1rem;
             font-weight: 600;
-            margin-bottom: 0.5em;
+            margin-bottom: var(--space-xs);
             color: var(--zinc-dark);
         }
 
         p {
-            font-size: 1.15em;
+            font-size: 1rem;
             line-height: 1.5;
             color: var(--zinc-gray);
         }
 
         .subtitle {
-            font-size: 1.6em;
+            font-size: clamp(1.125rem, 2vmin, 1.5rem);
             color: var(--zinc-gray);
-            margin-bottom: 1.5em;
+            margin-bottom: var(--space-lg);
         }
 
         .content-area {
@@ -145,56 +154,54 @@
             flex-direction: column;
             justify-content: flex-start;
             overflow: hidden;
+            max-width: 1400px;
         }
 
-        /* Grids */
+        /* Grids - with max-width constraints */
         .grid-2 {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5em;
-            margin-top: 1em;
-            flex: 1;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-lg);
+            margin-top: var(--space-md);
         }
 
         .grid-3 {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 1.2em;
-            margin-top: 1em;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+            margin-top: var(--space-md);
         }
 
-        /* Cards */
+        /* Cards - comfortable padding, not stretched */
         .card {
             background: var(--zinc-white);
-            border-radius: 1em;
-            padding: 1.2em;
-            box-shadow: 0 0.1em 0.6em rgba(0,0,0,0.04);
+            border-radius: 0.75rem;
+            padding: var(--space-lg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
             display: flex;
             flex-direction: column;
         }
 
         .card h4 {
             color: var(--zinc-dark);
-            margin-bottom: 0.6em;
-            font-size: 1em;
+            margin-bottom: var(--space-sm);
         }
 
         .card p {
-            font-size: 0.9em;
+            font-size: 0.9375rem;
             color: var(--zinc-gray);
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
         .card ul {
             list-style: none;
             padding: 0;
-            flex: 1;
         }
 
         .card li {
-            padding: 0.4em 0;
+            padding: var(--space-xs) 0;
             border-bottom: 1px solid var(--zinc-light-gray);
-            font-size: 0.9em;
+            font-size: 0.9375rem;
             color: var(--zinc-gray);
         }
 
@@ -210,16 +217,16 @@
         /* Nav dots */
         .nav-dots {
             position: absolute;
-            bottom: 1.5em;
+            bottom: var(--space-lg);
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 0.4em;
+            gap: var(--space-xs);
         }
 
         .nav-dot {
-            width: 0.5em;
-            height: 0.5em;
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
             background: var(--zinc-light-gray);
             cursor: pointer;
@@ -231,14 +238,14 @@
         /* Highlight box */
         .highlight-box {
             background: var(--zinc-white);
-            border-left: 0.25em solid var(--zinc-fluoro);
-            padding: 1em 1.2em;
-            margin-top: 1em;
-            border-radius: 0 0.8em 0.8em 0;
-            box-shadow: 0 0.1em 0.6em rgba(0,0,0,0.04);
+            border-left: 4px solid var(--zinc-fluoro);
+            padding: var(--space-md) var(--space-lg);
+            margin-top: var(--space-lg);
+            border-radius: 0 0.5rem 0.5rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
 
-        .highlight-box p { font-size: 1em; margin: 0; }
+        .highlight-box p { font-size: 0.9375rem; margin: 0; }
         .highlight-box.warning { border-left-color: var(--zinc-terracotta); }
         .highlight-box.error { border-left-color: var(--zinc-error); }
 
@@ -247,19 +254,19 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.6em;
-            margin: 1em 0;
+            gap: var(--space-sm);
+            margin: var(--space-md) 0;
             flex-wrap: wrap;
         }
 
         .flow-step {
             background: var(--zinc-white);
-            padding: 0.7em 1em;
-            border-radius: 0.5em;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: 0.5rem;
             font-weight: 600;
-            font-size: 0.9em;
+            font-size: 0.875rem;
             color: var(--zinc-dark);
-            box-shadow: 0 0.1em 0.6em rgba(0,0,0,0.04);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
             text-align: center;
         }
 
@@ -274,24 +281,24 @@
         .flow-step small {
             display: block;
             font-weight: 400;
-            font-size: 0.75em;
+            font-size: 0.75rem;
             color: var(--zinc-gray);
-            margin-top: 0.2em;
+            margin-top: 0.25rem;
         }
 
         .flow-arrow {
             color: var(--zinc-gray);
-            font-size: 1.1em;
+            font-size: 1rem;
             font-weight: bold;
         }
 
         /* Tags */
         .tag {
             display: inline-block;
-            padding: 0.25em 0.6em;
+            padding: 0.25rem 0.75rem;
             background: var(--zinc-peach);
-            border-radius: 1em;
-            font-size: 0.8em;
+            border-radius: 1rem;
+            font-size: 0.8125rem;
             font-weight: 500;
             color: var(--zinc-dark-terracotta);
         }
@@ -300,38 +307,37 @@
         .tag.blue { background: rgba(46, 234, 168, 0.15); color: #1a9e6e; }
         .tag.orange { background: rgba(230, 126, 34, 0.15); color: var(--zinc-warning); }
 
-        /* Friction list (slide 2) */
+        /* Friction list (slide 2) - 3 columns for more items */
         .friction-list {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.8em;
-            margin-top: 0.8em;
-            flex: 1;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+            margin-top: var(--space-md);
         }
 
         .friction-item {
             background: var(--zinc-white);
-            border-radius: 0.7em;
-            padding: 0.9em;
+            border-radius: 0.5rem;
+            padding: var(--space-md);
             display: flex;
             align-items: flex-start;
-            gap: 0.7em;
-            box-shadow: 0 0.1em 0.6em rgba(0,0,0,0.04);
+            gap: var(--space-sm);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
 
-        .friction-item .icon { font-size: 1.2em; flex-shrink: 0; }
+        .friction-item .icon { font-size: 1.25rem; flex-shrink: 0; }
 
         .friction-item .text {
-            font-size: 0.9em;
+            font-size: 0.875rem;
             color: var(--zinc-gray);
-            line-height: 1.35;
+            line-height: 1.4;
         }
 
         .friction-item .text strong { color: var(--zinc-dark); }
 
         /* Big number (slide 3) */
         .big-number {
-            font-size: 4em;
+            font-size: clamp(2.5rem, 6vmin, 4rem);
             font-weight: 700;
             color: var(--zinc-fluoro);
             line-height: 1;
@@ -340,17 +346,17 @@
         /* Video slides */
         .video-slide {
             display: grid;
-            grid-template-columns: 0.85fr 1.15fr;
-            gap: 2em;
-            flex: 1;
+            grid-template-columns: 1fr 1.2fr;
+            gap: var(--space-xl);
             align-items: center;
+            max-width: 1200px;
         }
 
         .video-container {
             background: var(--zinc-white);
-            border-radius: 0.8em;
+            border-radius: 0.75rem;
             overflow: hidden;
-            box-shadow: 0 0.2em 1em rgba(0,0,0,0.08);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
             aspect-ratio: 16/9;
             width: 100%;
         }
@@ -362,8 +368,7 @@
         }
 
         .video-content h3 {
-            font-size: 1.4em;
-            margin-bottom: 0.7em;
+            margin-bottom: var(--space-md);
         }
 
         .video-content ul {
@@ -372,10 +377,10 @@
         }
 
         .video-content li {
-            padding: 0.4em 0;
-            font-size: 1em;
+            padding: var(--space-xs) 0;
+            font-size: 0.9375rem;
             color: var(--zinc-gray);
-            padding-left: 1.3em;
+            padding-left: 1.5rem;
             position: relative;
         }
 
@@ -390,40 +395,40 @@
         /* Waterfall diagram (slide 6) */
         .waterfall-diagram {
             background: var(--zinc-white);
-            border-radius: 1em;
-            padding: 1.2em;
-            box-shadow: 0 0.1em 0.6em rgba(0,0,0,0.04);
-            flex: 1;
+            border-radius: 0.75rem;
+            padding: var(--space-lg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            max-width: 900px;
         }
 
         .waterfall-row {
             display: flex;
             align-items: center;
-            padding: 0.7em 0;
+            padding: var(--space-sm) 0;
             border-bottom: 1px solid var(--zinc-light-gray);
         }
 
         .waterfall-row:last-child { border-bottom: none; }
 
         .waterfall-label {
-            width: 8em;
+            width: 8rem;
             font-weight: 600;
-            font-size: 0.95em;
+            font-size: 0.9375rem;
             color: var(--zinc-dark);
         }
 
         .waterfall-providers {
             display: flex;
-            gap: 0.5em;
+            gap: var(--space-xs);
             flex-wrap: wrap;
             flex: 1;
         }
 
         .provider-tag {
             background: var(--zinc-tint);
-            padding: 0.35em 0.7em;
-            border-radius: 1em;
-            font-size: 0.8em;
+            padding: 0.375rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.8125rem;
             color: var(--zinc-gray);
             border: 1px solid var(--zinc-light-gray);
         }
@@ -437,99 +442,96 @@
         /* Stats comparison (slide 7) */
         .stats-comparison {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5em;
-            margin-top: 0.8em;
-            flex: 1;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-xl);
+            margin-top: var(--space-md);
+            max-width: 900px;
         }
 
         .stats-person {
             background: var(--zinc-white);
-            border-radius: 1em;
-            padding: 1.2em;
-            box-shadow: 0 0.1em 0.6em rgba(0,0,0,0.04);
-            display: flex;
-            flex-direction: column;
+            border-radius: 0.75rem;
+            padding: var(--space-lg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
 
         .stats-person h4 {
-            margin-bottom: 0.8em;
-            font-size: 1.1em;
+            margin-bottom: var(--space-md);
         }
 
         .stat-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0.5em 0;
+            padding: var(--space-xs) 0;
             border-bottom: 1px solid var(--zinc-light-gray);
         }
 
         .stat-row:last-child { border-bottom: none; }
 
         .stat-row .label {
-            font-size: 0.9em;
+            font-size: 0.875rem;
             color: var(--zinc-gray);
         }
 
         .stat-row .values {
             display: flex;
             align-items: center;
-            gap: 0.5em;
+            gap: var(--space-sm);
         }
 
         .stat-row .old {
-            font-size: 0.85em;
+            font-size: 0.8125rem;
             color: var(--zinc-gray);
             text-decoration: line-through;
         }
 
         .stat-row .new {
-            font-size: 1em;
+            font-size: 0.9375rem;
             font-weight: 600;
             color: var(--zinc-dark);
         }
 
         .stat-row .change {
-            font-size: 0.75em;
+            font-size: 0.75rem;
             font-weight: 600;
             color: var(--zinc-success);
             background: rgba(39, 174, 96, 0.1);
-            padding: 0.15em 0.5em;
-            border-radius: 0.6em;
+            padding: 0.125rem 0.5rem;
+            border-radius: 0.5rem;
         }
 
         /* Next item cards (slides 8, 9) */
         .next-item {
             background: var(--zinc-white);
-            border-radius: 1em;
-            padding: 1.5em;
-            box-shadow: 0 0.1em 0.6em rgba(0,0,0,0.04);
+            border-radius: 0.75rem;
+            padding: var(--space-xl);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
             display: flex;
-            gap: 1.5em;
+            gap: var(--space-lg);
             align-items: flex-start;
+            max-width: 800px;
         }
 
         .next-item .icon-box {
-            width: 3.5em;
-            height: 3.5em;
+            width: 3.5rem;
+            height: 3.5rem;
             background: var(--zinc-fluoro);
-            border-radius: 0.7em;
+            border-radius: 0.75rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.6em;
+            font-size: 1.5rem;
             flex-shrink: 0;
         }
 
         .next-item .content h4 {
-            font-size: 1.25em;
-            margin-bottom: 0.5em;
+            font-size: 1.125rem;
+            margin-bottom: var(--space-sm);
         }
 
         .next-item .content p {
-            font-size: 1em;
-            margin-bottom: 0.8em;
+            margin-bottom: var(--space-md);
         }
 
         .next-item .content ul {
@@ -538,10 +540,10 @@
         }
 
         .next-item .content li {
-            font-size: 0.95em;
+            font-size: 0.9375rem;
             color: var(--zinc-gray);
-            padding: 0.3em 0;
-            padding-left: 1.2em;
+            padding: 0.25rem 0;
+            padding-left: 1.25rem;
             position: relative;
         }
 
@@ -556,19 +558,19 @@
         .vision-stack {
             display: flex;
             flex-direction: column;
-            gap: 0.8em;
-            margin-top: 0.8em;
-            flex: 1;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+            max-width: 700px;
         }
 
         .vision-layer {
             background: var(--zinc-white);
-            border-radius: 0.7em;
-            padding: 1em 1.2em;
-            box-shadow: 0 0.1em 0.6em rgba(0,0,0,0.04);
+            border-radius: 0.5rem;
+            padding: var(--space-md) var(--space-lg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
             display: flex;
             align-items: center;
-            gap: 1em;
+            gap: var(--space-md);
         }
 
         .vision-layer.locked {
@@ -580,30 +582,30 @@
             border: 2px solid var(--zinc-fluoro);
         }
 
-        .vision-layer .status { font-size: 1.4em; }
+        .vision-layer .status { font-size: 1.25rem; }
 
         .vision-layer .text h4 {
-            font-size: 1em;
-            margin-bottom: 0.15em;
+            margin-bottom: 0.125rem;
         }
 
         .vision-layer .text p {
-            font-size: 0.85em;
+            font-size: 0.8125rem;
             margin: 0;
         }
 
         /* Timeline bar (slide 11) */
         .timeline-bar {
             display: flex;
-            margin-top: 1em;
+            margin-top: var(--space-md);
             background: var(--zinc-white);
-            border-radius: 1em;
+            border-radius: 0.75rem;
             overflow: hidden;
-            box-shadow: 0 0.1em 0.6em rgba(0,0,0,0.04);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            max-width: 1000px;
         }
 
         .timeline-segment {
-            padding: 1.2em;
+            padding: var(--space-lg);
             text-align: center;
             flex: 1;
             border-right: 1px solid var(--zinc-light-gray);
@@ -616,12 +618,11 @@
         }
 
         .timeline-segment h4 {
-            font-size: 1em;
-            margin-bottom: 0.4em;
+            margin-bottom: var(--space-xs);
         }
 
         .timeline-segment p {
-            font-size: 0.85em;
+            font-size: 0.8125rem;
             margin: 0;
         }
     </style>
@@ -639,39 +640,39 @@
             <div class="slide-number">1 / 12</div>
         </div>
 
-        <!-- SLIDE 2: The Problem We Solved -->
+        <!-- SLIDE 2: The Problems We're Solving -->
         <div class="slide with-flash">
-            <h2>The <span>Problem</span> We Solved</h2>
+            <h2>The <span>Problems</span> We're Solving</h2>
             <div class="content-area">
-                <p style="margin-bottom: 0.5em;">The old prospecting workflow was slow, fragmented, and full of friction.</p>
+                <p style="margin-bottom: var(--space-sm);">The prospecting workflow is slow, fragmented, and full of friction.</p>
                 <div class="friction-list">
                     <div class="friction-item">
-                        <div class="icon">🔍</div>
-                        <div class="text"><strong>Finding accounts</strong> — Checking HubSpot, verifying ROE, limited data to assess value</div>
+                        <div class="icon">📋</div>
+                        <div class="text"><strong>Duplicates created</strong> — Manual data entry across systems creates duplicate records</div>
                     </div>
                     <div class="friction-item">
-                        <div class="icon">👤</div>
-                        <div class="text"><strong>Getting contacts</strong> — Jumping to Sales Nav, manual searching, incomplete profiles</div>
-                    </div>
-                    <div class="friction-item">
-                        <div class="icon">📞</div>
-                        <div class="text"><strong>Contact info</strong> — Using Cognism for phones (low coverage), no validation</div>
-                    </div>
-                    <div class="friction-item">
-                        <div class="icon">📧</div>
-                        <div class="text"><strong>Email quality</strong> — No validation = bounces = deliverability damage</div>
-                    </div>
-                    <div class="friction-item">
-                        <div class="icon">⏱️</div>
-                        <div class="text"><strong>~30 minute delay</strong> — From finding account to actually dialing</div>
+                        <div class="icon">⏳</div>
+                        <div class="text"><strong>Old data in HS = wasted time</strong> — Outdated HubSpot records mean calling wrong numbers and dead ends</div>
                     </div>
                     <div class="friction-item">
                         <div class="icon">🔄</div>
-                        <div class="text"><strong>Sequence blind spots</strong> — Can't see if contact is already in a sequence</div>
+                        <div class="text"><strong>HubSpot to Outreach sync</strong> — 30-minute delay from finding account to actually dialing</div>
+                    </div>
+                    <div class="friction-item">
+                        <div class="icon">🔍</div>
+                        <div class="text"><strong>Manual account research</strong> — Checking for ATS, current hiring, current supplier + assessing fit</div>
+                    </div>
+                    <div class="friction-item">
+                        <div class="icon">🖥️</div>
+                        <div class="text"><strong>Tab-switching</strong> — Multi-step processes, CSV exports/imports, multiple tools = friction</div>
+                    </div>
+                    <div class="friction-item">
+                        <div class="icon">📞</div>
+                        <div class="text"><strong>Contact info gaps</strong> — Low phone coverage, no validation, bouncing emails</div>
                     </div>
                 </div>
                 <div class="highlight-box error">
-                    <p><strong>Result:</strong> SDRs spent more time on admin than on conversations. Low phone coverage, bouncing emails, duplicate outreach.</p>
+                    <p><strong>Result:</strong> SDRs spend more time on admin than conversations. The workflow fights them instead of helping them.</p>
                 </div>
             </div>
             <div class="slide-number">2 / 12</div>
