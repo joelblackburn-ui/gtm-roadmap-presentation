@@ -707,6 +707,56 @@
             font-size: 12px;
             margin: 0;
         }
+
+        .video-container {
+            background: var(--zinc-white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            aspect-ratio: 16/9;
+            width: 100%;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-slide {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            margin-top: 15px;
+            flex: 1;
+            align-items: center;
+        }
+
+        .video-content h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .video-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .video-content li {
+            padding: 8px 0;
+            font-size: 15px;
+            color: var(--zinc-gray);
+            padding-left: 22px;
+            position: relative;
+        }
+
+        .video-content li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--zinc-fluoro);
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -719,7 +769,7 @@
             <div class="logo">
                 <img src="zinclogo.png" alt="Zinc">
             </div>
-            <div class="slide-number">1 / 14</div>
+            <div class="slide-number">1 / 12</div>
         </div>
 
         <!-- SLIDE 2: The Problem We Solved -->
@@ -757,7 +807,7 @@
                     <p><strong>Result:</strong> SDRs spent more time on admin than on conversations. Low phone coverage, bouncing emails, duplicate outreach.</p>
                 </div>
             </div>
-            <div class="slide-number">2 / 14</div>
+            <div class="slide-number">2 / 12</div>
         </div>
 
         <!-- SLIDE 3: Old vs New Workflow -->
@@ -801,104 +851,51 @@
                     </div>
                 </div>
             </div>
-            <div class="slide-number">3 / 14</div>
+            <div class="slide-number">3 / 12</div>
         </div>
 
-        <!-- SLIDE 4: Exportly Feature - Account Research -->
+        <!-- SLIDE 4: Exportly - Account Research & Claiming (Video) -->
         <div class="slide with-flash">
-            <h2>Exportly: <span>Account Research</span></h2>
-            <div class="feature-slide">
-                <div class="feature-content">
-                    <h3>Find the Right Accounts</h3>
+            <h2>Exportly: <span>Account Research & Claiming</span></h2>
+            <div class="video-slide">
+                <div class="video-content">
+                    <h3>Find & Claim Accounts</h3>
                     <ul>
-                        <li>Search and filter accounts by multiple criteria</li>
+                        <li>Search and filter by multiple criteria</li>
                         <li>See enriched firmographics (ATS, hires/year)</li>
                         <li>Check Rules of Engagement in one view</li>
-                        <li>Identify high-value targets quickly</li>
-                        <li>No more jumping between HubSpot tabs</li>
-                    </ul>
-                    <div class="highlight-box" style="margin-top: 20px;">
-                        <p><strong>Key benefit:</strong> Data-driven account selection instead of guesswork.</p>
-                    </div>
-                </div>
-                <div class="screenshot-placeholder">
-                    <p>[ Screenshot: Account Research View ]</p>
-                </div>
-            </div>
-            <div class="slide-number">4 / 14</div>
-        </div>
-
-        <!-- SLIDE 5: Exportly Feature - Claim Accounts -->
-        <div class="slide with-flash">
-            <h2>Exportly: <span>Claim Accounts</span></h2>
-            <div class="feature-slide">
-                <div class="feature-content">
-                    <h3>Claim Accounts on Demand</h3>
-                    <ul>
                         <li>One-click account claiming</li>
-                        <li>Instant ownership assignment</li>
                         <li>Prevents duplicate work across team</li>
-                        <li>Clear visibility of who owns what</li>
-                        <li>Integrates directly with HubSpot ownership</li>
+                        <li>Integrates with HubSpot ownership</li>
                     </ul>
-                    <div class="highlight-box" style="margin-top: 20px;">
-                        <p><strong>Key benefit:</strong> No more stepping on each other's toes.</p>
-                    </div>
                 </div>
-                <div class="screenshot-placeholder">
-                    <p>[ Screenshot: Claim Account Flow ]</p>
+                <div class="video-container">
+                    <iframe src="https://www.loom.com/embed/5deb9401af6641a2aeb6618bc77ec909" allowfullscreen></iframe>
                 </div>
             </div>
-            <div class="slide-number">5 / 14</div>
+            <div class="slide-number">4 / 12</div>
         </div>
 
-        <!-- SLIDE 6: Exportly Feature - Waterfall Enrichment -->
+        <!-- SLIDE 5: Exportly - Enrichment & Sequencing (Video) -->
         <div class="slide with-flash">
-            <h2>Exportly: <span>1-Click Enrichment</span></h2>
-            <div class="feature-slide">
-                <div class="feature-content">
-                    <h3>Waterfall Enrichment</h3>
+            <h2>Exportly: <span>Enrich & Send to Outreach</span></h2>
+            <div class="video-slide">
+                <div class="video-content">
+                    <h3>1-Click Enrichment & Sequencing</h3>
                     <ul>
-                        <li>One click enriches contact info</li>
-                        <li>Multiple providers tried in sequence</li>
-                        <li>Best available data wins</li>
+                        <li>Waterfall enrichment (best data wins)</li>
                         <li>Phone line validation included</li>
                         <li>Email validation prevents bounces</li>
                         <li>Duplicate prevention built in</li>
+                        <li>Add to Outreach sequences instantly</li>
+                        <li>See existing sequences before adding</li>
                     </ul>
-                    <div class="highlight-box" style="margin-top: 20px;">
-                        <p><strong>Key benefit:</strong> Higher coverage, validated data, zero manual enrichment.</p>
-                    </div>
                 </div>
-                <div class="screenshot-placeholder">
-                    <p>[ Screenshot: Enrichment in Action ]</p>
+                <div class="video-container">
+                    <iframe src="https://www.loom.com/embed/b40d2963a39a452caab2c80a4e7ad443" allowfullscreen></iframe>
                 </div>
             </div>
-            <div class="slide-number">6 / 14</div>
-        </div>
-
-        <!-- SLIDE 7: Exportly Feature - Add to Sequence -->
-        <div class="slide with-flash">
-            <h2>Exportly: <span>Add to Sequence</span></h2>
-            <div class="feature-slide">
-                <div class="feature-content">
-                    <h3>Smart Sequence Management</h3>
-                    <ul>
-                        <li>Add contacts to Outreach sequences instantly</li>
-                        <li>See if contact is already in a sequence</li>
-                        <li>Remove from sequence if needed</li>
-                        <li>Rules and controls prevent mistakes</li>
-                        <li>No manual Outreach navigation required</li>
-                    </ul>
-                    <div class="highlight-box" style="margin-top: 20px;">
-                        <p><strong>Key benefit:</strong> From account to dialing in seconds, not 30 minutes.</p>
-                    </div>
-                </div>
-                <div class="screenshot-placeholder">
-                    <p>[ Screenshot: Sequence Selection ]</p>
-                </div>
-            </div>
-            <div class="slide-number">7 / 14</div>
+            <div class="slide-number">5 / 12</div>
         </div>
 
         <!-- SLIDE 8: The Data Engine -->
@@ -945,7 +942,7 @@
                     <p><strong>Waterfall logic:</strong> Try provider 1 → if no result, try provider 2 → if no result, try provider 3. Best available data always wins.</p>
                 </div>
             </div>
-            <div class="slide-number">8 / 14</div>
+            <div class="slide-number">6 / 12</div>
         </div>
 
         <!-- SLIDE 9: Early Results -->
@@ -1029,7 +1026,7 @@
                     <p><strong>Key insight:</strong> More prospects added, more calls made, higher answer rates, longer conversations. Better data = better conversations.</p>
                 </div>
             </div>
-            <div class="slide-number">9 / 14</div>
+            <div class="slide-number">7 / 12</div>
         </div>
 
         <!-- SLIDE 10: What's Next - Titan X -->
@@ -1054,7 +1051,7 @@
                     <p><span class="tag orange">Live in 2 weeks</span> &nbsp; Titan X will become a mandatory part of the workflow. Every dial will be to a validated, receptive contact.</p>
                 </div>
             </div>
-            <div class="slide-number">10 / 14</div>
+            <div class="slide-number">8 / 12</div>
         </div>
 
         <!-- SLIDE 11: What's Next - HeyReach -->
@@ -1079,7 +1076,7 @@
                     <p><strong>Coverage gap closed:</strong> No phone? No problem. LinkedIn outreach runs automatically.</p>
                 </div>
             </div>
-            <div class="slide-number">11 / 14</div>
+            <div class="slide-number">9 / 12</div>
         </div>
 
         <!-- SLIDE 12: The Bigger Picture -->
@@ -1121,7 +1118,7 @@
                     <p><strong>Gating challenge:</strong> Source of Truth must be fixed before advanced scoring and automated routing can work. Can't automate on top of bad data.</p>
                 </div>
             </div>
-            <div class="slide-number">12 / 14</div>
+            <div class="slide-number">10 / 12</div>
         </div>
 
         <!-- SLIDE 13: The Journey -->
@@ -1167,14 +1164,14 @@
                     </div>
                 </div>
             </div>
-            <div class="slide-number">13 / 14</div>
+            <div class="slide-number">11 / 12</div>
         </div>
 
         <!-- SLIDE 14: Q&A -->
         <div class="slide center with-flash">
             <h1>Questions?</h1>
             <p class="subtitle">Joel Blackburn | GTM Engineering</p>
-            <div class="slide-number">14 / 14</div>
+            <div class="slide-number">12 / 12</div>
         </div>
 
         <!-- Navigation dots -->
@@ -1191,8 +1188,6 @@
             <div class="nav-dot" data-slide="9"></div>
             <div class="nav-dot" data-slide="10"></div>
             <div class="nav-dot" data-slide="11"></div>
-            <div class="nav-dot" data-slide="12"></div>
-            <div class="nav-dot" data-slide="13"></div>
         </div>
     </div>
 
