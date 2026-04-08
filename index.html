@@ -30,14 +30,17 @@
             --zinc-error: #e74c3c;
         }
 
+        html {
+            /* Base unit that scales with viewport - all em values derive from this */
+            font-size: clamp(10px, min(1.8vh, 1.1vw), 20px);
+        }
+
         body {
             font-family: 'Maison Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: var(--zinc-tint);
             color: var(--zinc-dark);
             overflow: hidden;
             margin: 0;
-            /* Base font size scales with viewport - smaller dimension wins */
-            font-size: min(2.2vh, 1.4vw);
         }
 
         .presentation {
@@ -52,7 +55,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            padding: 4vh 5vw;
+            padding: 3.5em 4em;
             display: none;
             flex-direction: column;
             background: var(--zinc-tint);
@@ -71,9 +74,9 @@
 
         .slide-number {
             position: absolute;
-            bottom: 3%;
-            right: 3%;
-            font-size: 0.8em;
+            bottom: 1.5em;
+            right: 2em;
+            font-size: 0.85em;
             color: var(--zinc-gray);
             font-family: 'Maison Neue Mono', monospace;
             letter-spacing: 0.5px;
@@ -81,8 +84,8 @@
 
         .logo {
             position: absolute;
-            top: 3%;
-            left: 3%;
+            top: 1.5em;
+            left: 2em;
         }
 
         .logo img {
@@ -91,53 +94,49 @@
         }
 
         h1 {
-            font-size: 3em;
+            font-size: 3.2em;
             font-weight: 700;
-            margin-bottom: 0.4em;
+            margin-bottom: 0.3em;
             color: var(--zinc-dark);
-            letter-spacing: -1px;
+            letter-spacing: -0.02em;
         }
 
-        h1 span {
-            color: var(--zinc-fluoro);
-        }
+        h1 span { color: var(--zinc-fluoro); }
 
         h2 {
-            font-size: 2.2em;
+            font-size: 2.4em;
             font-weight: 600;
-            margin-bottom: 0.5em;
+            margin-bottom: 0.4em;
             color: var(--zinc-dark);
-            letter-spacing: -0.5px;
+            letter-spacing: -0.01em;
         }
 
-        h2 span {
-            color: var(--zinc-fluoro);
-        }
+        h2 span { color: var(--zinc-fluoro); }
 
         h3 {
-            font-size: 1.4em;
+            font-size: 1.5em;
             font-weight: 600;
-            margin-bottom: 0.6em;
+            margin-bottom: 0.5em;
             color: var(--zinc-dark);
         }
 
         h4 {
             font-size: 1.1em;
             font-weight: 600;
-            margin-bottom: 0.6em;
+            margin-bottom: 0.5em;
             color: var(--zinc-dark);
         }
 
         p {
-            font-size: 1.1em;
-            line-height: 1.6;
+            font-size: 1.15em;
+            line-height: 1.5;
             color: var(--zinc-gray);
         }
 
         .subtitle {
-            font-size: 1.5em;
+            font-size: 1.6em;
             color: var(--zinc-gray);
-            margin-bottom: 2em;
+            margin-bottom: 1.5em;
         }
 
         .content-area {
@@ -145,183 +144,122 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-            padding-top: 10px;
             overflow: hidden;
         }
 
+        /* Grids */
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-top: 20px;
+            gap: 1.5em;
+            margin-top: 1em;
+            flex: 1;
         }
 
         .grid-3 {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            gap: 25px;
-            margin-top: 20px;
+            gap: 1.2em;
+            margin-top: 1em;
         }
 
-        .grid-4 {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
+        /* Cards */
         .card {
             background: var(--zinc-white);
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            border-radius: 1em;
+            padding: 1.2em;
+            box-shadow: 0 0.1em 0.6em rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
         }
 
         .card h4 {
             color: var(--zinc-dark);
-            margin-bottom: 12px;
-            font-size: 16px;
+            margin-bottom: 0.6em;
+            font-size: 1em;
         }
 
         .card p {
-            font-size: 15px;
+            font-size: 0.9em;
             color: var(--zinc-gray);
-            line-height: 1.5;
+            line-height: 1.4;
         }
 
         .card ul {
             list-style: none;
             padding: 0;
+            flex: 1;
         }
 
         .card li {
-            padding: 8px 0;
+            padding: 0.4em 0;
             border-bottom: 1px solid var(--zinc-light-gray);
-            font-size: 14px;
+            font-size: 0.9em;
             color: var(--zinc-gray);
         }
 
-        .card li:last-child {
-            border-bottom: none;
-        }
+        .card li:last-child { border-bottom: none; }
 
-        .card.stat-card {
-            text-align: center;
-            padding: 25px 15px;
-        }
-
-        .card.stat-card .stat-number {
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--zinc-fluoro);
-            margin-bottom: 8px;
-        }
-
-        .card.stat-card .stat-label {
-            font-size: 13px;
-            color: var(--zinc-gray);
-        }
-
-        .card.stat-card.highlight {
-            border: 2px solid var(--zinc-fluoro);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-            background: var(--zinc-white);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-        }
-
-        th {
-            background: var(--zinc-black);
-            color: var(--zinc-white);
-            padding: 12px 15px;
-            text-align: left;
-            font-weight: 600;
-            font-size: 13px;
-        }
-
-        td {
-            padding: 12px 15px;
-            border-bottom: 1px solid var(--zinc-light-gray);
-            font-size: 14px;
-            color: var(--zinc-gray);
-        }
-
-        tr:last-child td {
-            border-bottom: none;
-        }
-
+        /* Slide: center (title slides) */
         .slide.center {
             justify-content: center;
             align-items: center;
             text-align: center;
         }
 
+        /* Nav dots */
         .nav-dots {
             position: absolute;
-            bottom: 3%;
+            bottom: 1.5em;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 6px;
+            gap: 0.4em;
         }
 
         .nav-dot {
-            width: 8px;
-            height: 8px;
+            width: 0.5em;
+            height: 0.5em;
             border-radius: 50%;
             background: var(--zinc-light-gray);
             cursor: pointer;
             transition: background 0.3s;
         }
 
-        .nav-dot.active {
-            background: var(--zinc-fluoro);
-        }
+        .nav-dot.active { background: var(--zinc-fluoro); }
 
+        /* Highlight box */
         .highlight-box {
             background: var(--zinc-white);
-            border-left: 4px solid var(--zinc-fluoro);
-            padding: 20px 25px;
-            margin: 15px 0;
-            border-radius: 0 16px 16px 0;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            border-left: 0.25em solid var(--zinc-fluoro);
+            padding: 1em 1.2em;
+            margin-top: 1em;
+            border-radius: 0 0.8em 0.8em 0;
+            box-shadow: 0 0.1em 0.6em rgba(0,0,0,0.04);
         }
 
-        .highlight-box p {
-            font-size: 16px;
-        }
+        .highlight-box p { font-size: 1em; margin: 0; }
+        .highlight-box.warning { border-left-color: var(--zinc-terracotta); }
+        .highlight-box.error { border-left-color: var(--zinc-error); }
 
-        .highlight-box.warning {
-            border-left-color: var(--zinc-terracotta);
-        }
-
-        .highlight-box.error {
-            border-left-color: var(--zinc-error);
-        }
-
+        /* Flow diagram */
         .flow {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            margin: 20px 0;
+            gap: 0.6em;
+            margin: 1em 0;
             flex-wrap: wrap;
         }
 
         .flow-step {
             background: var(--zinc-white);
-            padding: 12px 18px;
-            border-radius: 8px;
+            padding: 0.7em 1em;
+            border-radius: 0.5em;
             font-weight: 600;
-            font-size: 13px;
+            font-size: 0.9em;
             color: var(--zinc-dark);
-            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            box-shadow: 0 0.1em 0.6em rgba(0,0,0,0.04);
             text-align: center;
         }
 
@@ -331,114 +269,117 @@
             color: var(--zinc-error);
         }
 
-        .flow-step.done {
-            background: var(--zinc-fluoro);
-        }
+        .flow-step.done { background: var(--zinc-fluoro); }
 
         .flow-step small {
             display: block;
             font-weight: 400;
-            font-size: 11px;
+            font-size: 0.75em;
             color: var(--zinc-gray);
-            margin-top: 4px;
+            margin-top: 0.2em;
         }
 
         .flow-arrow {
             color: var(--zinc-gray);
-            font-size: 18px;
+            font-size: 1.1em;
             font-weight: bold;
         }
 
+        /* Tags */
         .tag {
             display: inline-block;
-            padding: 4px 10px;
+            padding: 0.25em 0.6em;
             background: var(--zinc-peach);
-            border-radius: 15px;
-            font-size: 12px;
+            border-radius: 1em;
+            font-size: 0.8em;
             font-weight: 500;
             color: var(--zinc-dark-terracotta);
         }
 
-        .tag.green {
-            background: rgba(39, 174, 96, 0.15);
-            color: var(--zinc-success);
-        }
+        .tag.green { background: rgba(39, 174, 96, 0.15); color: var(--zinc-success); }
+        .tag.blue { background: rgba(46, 234, 168, 0.15); color: #1a9e6e; }
+        .tag.orange { background: rgba(230, 126, 34, 0.15); color: var(--zinc-warning); }
 
-        .tag.blue {
-            background: rgba(46, 234, 168, 0.15);
-            color: #1a9e6e;
-        }
-
-        .tag.orange {
-            background: rgba(230, 126, 34, 0.15);
-            color: var(--zinc-warning);
-        }
-
+        /* Friction list (slide 2) */
         .friction-list {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 15px;
+            gap: 0.8em;
+            margin-top: 0.8em;
+            flex: 1;
         }
 
         .friction-item {
             background: var(--zinc-white);
-            border-radius: 12px;
-            padding: 18px;
+            border-radius: 0.7em;
+            padding: 0.9em;
             display: flex;
             align-items: flex-start;
-            gap: 12px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            gap: 0.7em;
+            box-shadow: 0 0.1em 0.6em rgba(0,0,0,0.04);
         }
 
-        .friction-item .icon {
-            font-size: 20px;
-            flex-shrink: 0;
-        }
+        .friction-item .icon { font-size: 1.2em; flex-shrink: 0; }
 
         .friction-item .text {
-            font-size: 14px;
+            font-size: 0.9em;
             color: var(--zinc-gray);
-            line-height: 1.4;
+            line-height: 1.35;
         }
 
-        .friction-item .text strong {
-            color: var(--zinc-dark);
+        .friction-item .text strong { color: var(--zinc-dark); }
+
+        /* Big number (slide 3) */
+        .big-number {
+            font-size: 4em;
+            font-weight: 700;
+            color: var(--zinc-fluoro);
+            line-height: 1;
         }
 
-        .feature-slide {
+        /* Video slides */
+        .video-slide {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-top: 20px;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 2em;
             flex: 1;
+            align-items: center;
         }
 
-        .feature-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        .video-container {
+            background: var(--zinc-white);
+            border-radius: 0.8em;
+            overflow: hidden;
+            box-shadow: 0 0.2em 1em rgba(0,0,0,0.08);
+            aspect-ratio: 16/9;
+            width: 100%;
         }
 
-        .feature-content h3 {
-            font-size: 28px;
-            margin-bottom: 20px;
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
-        .feature-content ul {
+        .video-content h3 {
+            font-size: 1.4em;
+            margin-bottom: 0.7em;
+        }
+
+        .video-content ul {
             list-style: none;
             padding: 0;
         }
 
-        .feature-content li {
-            padding: 10px 0;
-            font-size: 16px;
+        .video-content li {
+            padding: 0.4em 0;
+            font-size: 1em;
             color: var(--zinc-gray);
-            padding-left: 25px;
+            padding-left: 1.3em;
             position: relative;
         }
 
-        .feature-content li::before {
+        .video-content li::before {
             content: "✓";
             position: absolute;
             left: 0;
@@ -446,65 +387,43 @@
             font-weight: bold;
         }
 
-        .screenshot-placeholder {
-            background: var(--zinc-white);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            border: 2px dashed var(--zinc-light-gray);
-            min-height: 350px;
-        }
-
-        .screenshot-placeholder p {
-            color: var(--zinc-gray);
-            font-size: 14px;
-        }
-
-        .screenshot-placeholder img {
-            max-width: 100%;
-            max-height: 100%;
-            border-radius: 14px;
-        }
-
+        /* Waterfall diagram (slide 6) */
         .waterfall-diagram {
             background: var(--zinc-white);
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            border-radius: 1em;
+            padding: 1.2em;
+            box-shadow: 0 0.1em 0.6em rgba(0,0,0,0.04);
+            flex: 1;
         }
 
         .waterfall-row {
             display: flex;
             align-items: center;
-            padding: 12px 0;
+            padding: 0.7em 0;
             border-bottom: 1px solid var(--zinc-light-gray);
         }
 
-        .waterfall-row:last-child {
-            border-bottom: none;
-        }
+        .waterfall-row:last-child { border-bottom: none; }
 
         .waterfall-label {
-            width: 140px;
+            width: 8em;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 0.95em;
             color: var(--zinc-dark);
         }
 
         .waterfall-providers {
             display: flex;
-            gap: 8px;
+            gap: 0.5em;
             flex-wrap: wrap;
             flex: 1;
         }
 
         .provider-tag {
             background: var(--zinc-tint);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 12px;
+            padding: 0.35em 0.7em;
+            border-radius: 1em;
+            font-size: 0.8em;
             color: var(--zinc-gray);
             border: 1px solid var(--zinc-light-gray);
         }
@@ -515,99 +434,102 @@
             color: var(--zinc-dark);
         }
 
+        /* Stats comparison (slide 7) */
         .stats-comparison {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-top: 20px;
+            gap: 1.5em;
+            margin-top: 0.8em;
+            flex: 1;
         }
 
         .stats-person {
             background: var(--zinc-white);
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            border-radius: 1em;
+            padding: 1.2em;
+            box-shadow: 0 0.1em 0.6em rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
         }
 
         .stats-person h4 {
-            margin-bottom: 20px;
-            font-size: 18px;
+            margin-bottom: 0.8em;
+            font-size: 1.1em;
         }
 
         .stat-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 0;
+            padding: 0.5em 0;
             border-bottom: 1px solid var(--zinc-light-gray);
         }
 
-        .stat-row:last-child {
-            border-bottom: none;
-        }
+        .stat-row:last-child { border-bottom: none; }
 
         .stat-row .label {
-            font-size: 14px;
+            font-size: 0.9em;
             color: var(--zinc-gray);
         }
 
         .stat-row .values {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 0.5em;
         }
 
         .stat-row .old {
-            font-size: 14px;
+            font-size: 0.85em;
             color: var(--zinc-gray);
             text-decoration: line-through;
         }
 
         .stat-row .new {
-            font-size: 16px;
+            font-size: 1em;
             font-weight: 600;
             color: var(--zinc-dark);
         }
 
         .stat-row .change {
-            font-size: 12px;
+            font-size: 0.75em;
             font-weight: 600;
             color: var(--zinc-success);
             background: rgba(39, 174, 96, 0.1);
-            padding: 2px 8px;
-            border-radius: 10px;
+            padding: 0.15em 0.5em;
+            border-radius: 0.6em;
         }
 
+        /* Next item cards (slides 8, 9) */
         .next-item {
             background: var(--zinc-white);
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            border-radius: 1em;
+            padding: 1.5em;
+            box-shadow: 0 0.1em 0.6em rgba(0,0,0,0.04);
             display: flex;
-            gap: 25px;
+            gap: 1.5em;
             align-items: flex-start;
         }
 
         .next-item .icon-box {
-            width: 60px;
-            height: 60px;
+            width: 3.5em;
+            height: 3.5em;
             background: var(--zinc-fluoro);
-            border-radius: 12px;
+            border-radius: 0.7em;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
+            font-size: 1.6em;
             flex-shrink: 0;
         }
 
         .next-item .content h4 {
-            font-size: 20px;
-            margin-bottom: 10px;
+            font-size: 1.25em;
+            margin-bottom: 0.5em;
         }
 
         .next-item .content p {
-            font-size: 15px;
-            margin-bottom: 15px;
+            font-size: 1em;
+            margin-bottom: 0.8em;
         }
 
         .next-item .content ul {
@@ -616,10 +538,10 @@
         }
 
         .next-item .content li {
-            font-size: 14px;
+            font-size: 0.95em;
             color: var(--zinc-gray);
-            padding: 5px 0;
-            padding-left: 20px;
+            padding: 0.3em 0;
+            padding-left: 1.2em;
             position: relative;
         }
 
@@ -630,21 +552,23 @@
             color: var(--zinc-fluoro);
         }
 
+        /* Vision stack (slide 10) */
         .vision-stack {
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            margin-top: 20px;
+            gap: 0.8em;
+            margin-top: 0.8em;
+            flex: 1;
         }
 
         .vision-layer {
             background: var(--zinc-white);
-            border-radius: 12px;
-            padding: 20px 25px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            border-radius: 0.7em;
+            padding: 1em 1.2em;
+            box-shadow: 0 0.1em 0.6em rgba(0,0,0,0.04);
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 1em;
         }
 
         .vision-layer.locked {
@@ -656,110 +580,49 @@
             border: 2px solid var(--zinc-fluoro);
         }
 
-        .vision-layer .status {
-            font-size: 24px;
-        }
+        .vision-layer .status { font-size: 1.4em; }
 
         .vision-layer .text h4 {
-            font-size: 16px;
-            margin-bottom: 4px;
+            font-size: 1em;
+            margin-bottom: 0.15em;
         }
 
         .vision-layer .text p {
-            font-size: 13px;
+            font-size: 0.85em;
             margin: 0;
         }
 
-        .big-number {
-            font-size: 72px;
-            font-weight: 700;
-            color: var(--zinc-fluoro);
-            line-height: 1;
-        }
-
+        /* Timeline bar (slide 11) */
         .timeline-bar {
             display: flex;
-            margin-top: 30px;
+            margin-top: 1em;
             background: var(--zinc-white);
-            border-radius: 16px;
+            border-radius: 1em;
             overflow: hidden;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            box-shadow: 0 0.1em 0.6em rgba(0,0,0,0.04);
         }
 
         .timeline-segment {
-            padding: 20px;
+            padding: 1.2em;
             text-align: center;
             flex: 1;
             border-right: 1px solid var(--zinc-light-gray);
         }
 
-        .timeline-segment:last-child {
-            border-right: none;
-        }
+        .timeline-segment:last-child { border-right: none; }
 
         .timeline-segment.current {
             background: rgba(46, 234, 168, 0.1);
         }
 
         .timeline-segment h4 {
-            font-size: 14px;
-            margin-bottom: 8px;
+            font-size: 1em;
+            margin-bottom: 0.4em;
         }
 
         .timeline-segment p {
-            font-size: 12px;
+            font-size: 0.85em;
             margin: 0;
-        }
-
-        .video-container {
-            background: var(--zinc-white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            aspect-ratio: 16/9;
-            width: 100%;
-            max-height: 100%;
-        }
-
-        .video-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .video-slide {
-            display: grid;
-            grid-template-columns: 0.9fr 1.1fr;
-            gap: 30px;
-            margin-top: 10px;
-            flex: 1;
-            align-items: center;
-        }
-
-        .video-content h3 {
-            font-size: 1.4em;
-            margin-bottom: 12px;
-        }
-
-        .video-content ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .video-content li {
-            padding: 6px 0;
-            font-size: 0.9em;
-            color: var(--zinc-gray);
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .video-content li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--zinc-fluoro);
-            font-weight: bold;
         }
     </style>
 </head>
@@ -769,7 +632,7 @@
         <div class="slide active center with-flash">
             <h1>GTM Engineering</h1>
             <p class="subtitle">What We've Built & What's Next</p>
-            <p style="margin-top: 40px; font-size: 16px;">Joel Blackburn | April 2026</p>
+            <p style="margin-top: 2em; font-size: 1em;">Joel Blackburn | April 2026</p>
             <div class="logo">
                 <img src="zinclogo.png" alt="Zinc">
             </div>
@@ -780,7 +643,7 @@
         <div class="slide with-flash">
             <h2>The <span>Problem</span> We Solved</h2>
             <div class="content-area">
-                <p style="margin-bottom: 15px;">The old prospecting workflow was slow, fragmented, and full of friction.</p>
+                <p style="margin-bottom: 0.5em;">The old prospecting workflow was slow, fragmented, and full of friction.</p>
                 <div class="friction-list">
                     <div class="friction-item">
                         <div class="icon">🔍</div>
@@ -807,7 +670,7 @@
                         <div class="text"><strong>Sequence blind spots</strong> — Can't see if contact is already in a sequence</div>
                     </div>
                 </div>
-                <div class="highlight-box error" style="margin-top: 20px;">
+                <div class="highlight-box error">
                     <p><strong>Result:</strong> SDRs spent more time on admin than on conversations. Low phone coverage, bouncing emails, duplicate outreach.</p>
                 </div>
             </div>
@@ -818,7 +681,7 @@
         <div class="slide with-flash">
             <h2>Old vs <span>New</span> Workflow</h2>
             <div class="content-area">
-                <h4 style="color: var(--zinc-error); margin-bottom: 10px;">Before: ~30 minutes per account</h4>
+                <h4 style="color: var(--zinc-error); margin-bottom: 0.5em;">Before: ~30 minutes per account</h4>
                 <div class="flow">
                     <div class="flow-step problem">HubSpot<small>Check ROE</small></div>
                     <div class="flow-arrow">→</div>
@@ -830,11 +693,11 @@
                     <div class="flow-arrow">→</div>
                     <div class="flow-step problem">Outreach<small>Manual sequence</small></div>
                 </div>
-                <h4 style="color: var(--zinc-success); margin-top: 30px; margin-bottom: 10px;">Now: Instant</h4>
+                <h4 style="color: var(--zinc-success); margin-top: 1.2em; margin-bottom: 0.5em;">Now: Instant</h4>
                 <div class="flow">
                     <div class="flow-step done">Exportly<small>Research → Claim → Enrich → Sequence</small></div>
                 </div>
-                <div class="grid-2" style="margin-top: 30px;">
+                <div class="grid-2" style="margin-top: 1.2em;">
                     <div class="card">
                         <h4>What Changed</h4>
                         <ul>
@@ -846,12 +709,10 @@
                             <li>See existing sequences before adding</li>
                         </ul>
                     </div>
-                    <div class="card">
+                    <div class="card" style="justify-content: center; align-items: center; text-align: center;">
                         <h4>Time Saved</h4>
-                        <div style="text-align: center; padding: 20px 0;">
-                            <div class="big-number">30→0</div>
-                            <p style="margin-top: 10px;">minutes of setup time eliminated</p>
-                        </div>
+                        <div class="big-number">30→0</div>
+                        <p style="margin-top: 0.5em;">minutes of setup time eliminated</p>
                     </div>
                 </div>
             </div>
@@ -902,11 +763,11 @@
             <div class="slide-number">5 / 12</div>
         </div>
 
-        <!-- SLIDE 8: The Data Engine -->
+        <!-- SLIDE 6: The Data Engine -->
         <div class="slide with-flash">
             <h2>The <span>Data Engine</span></h2>
             <div class="content-area">
-                <p style="margin-bottom: 20px;">Powered by <strong>Clay</strong> — waterfall enrichment tries multiple providers to get the best data.</p>
+                <p style="margin-bottom: 0.8em;">Powered by <strong>Clay</strong> — waterfall enrichment tries multiple providers to get the best data.</p>
                 <div class="waterfall-diagram">
                     <div class="waterfall-row">
                         <div class="waterfall-label">Contact Data</div>
@@ -942,18 +803,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="highlight-box" style="margin-top: 20px;">
+                <div class="highlight-box">
                     <p><strong>Waterfall logic:</strong> Try provider 1 → if no result, try provider 2 → if no result, try provider 3. Best available data always wins.</p>
                 </div>
             </div>
             <div class="slide-number">6 / 12</div>
         </div>
 
-        <!-- SLIDE 9: Early Results -->
+        <!-- SLIDE 7: Early Results -->
         <div class="slide with-flash">
             <h2>Early <span>Results</span></h2>
             <div class="content-area">
-                <p style="margin-bottom: 15px;">Q4 2025 vs Q1 2026 — performance with Exportly</p>
+                <p style="margin-bottom: 0.5em;">Q4 2025 vs Q1 2026 — performance with Exportly</p>
                 <div class="stats-comparison">
                     <div class="stats-person">
                         <h4>Harriet</h4>
@@ -1026,14 +887,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="highlight-box" style="margin-top: 20px;">
+                <div class="highlight-box">
                     <p><strong>Key insight:</strong> More prospects added, more calls made, higher answer rates, longer conversations. Better data = better conversations.</p>
                 </div>
             </div>
             <div class="slide-number">7 / 12</div>
         </div>
 
-        <!-- SLIDE 10: What's Next - Titan X -->
+        <!-- SLIDE 8: What's Next - Titan X -->
         <div class="slide with-flash">
             <h2>What's Next: <span>Titan X</span></h2>
             <div class="content-area">
@@ -1051,14 +912,14 @@
                         </ul>
                     </div>
                 </div>
-                <div class="highlight-box" style="margin-top: 25px;">
+                <div class="highlight-box" style="margin-top: 1.2em;">
                     <p><span class="tag orange">Live in 2 weeks</span> &nbsp; Titan X will become a mandatory part of the workflow. Every dial will be to a validated, receptive contact.</p>
                 </div>
             </div>
             <div class="slide-number">8 / 12</div>
         </div>
 
-        <!-- SLIDE 11: What's Next - HeyReach -->
+        <!-- SLIDE 9: What's Next - HeyReach -->
         <div class="slide with-flash">
             <h2>What's Next: <span>HeyReach</span></h2>
             <div class="content-area">
@@ -1076,18 +937,18 @@
                         </ul>
                     </div>
                 </div>
-                <div class="highlight-box" style="margin-top: 25px;">
+                <div class="highlight-box" style="margin-top: 1.2em;">
                     <p><strong>Coverage gap closed:</strong> No phone? No problem. LinkedIn outreach runs automatically.</p>
                 </div>
             </div>
             <div class="slide-number">9 / 12</div>
         </div>
 
-        <!-- SLIDE 12: The Bigger Picture -->
+        <!-- SLIDE 10: The Bigger Picture -->
         <div class="slide with-flash">
             <h2>The <span>Bigger Picture</span></h2>
             <div class="content-area">
-                <p style="margin-bottom: 20px;">Exportly, Titan X, and HeyReach are stepping stones. The grand vision requires fixing a fundamental challenge.</p>
+                <p style="margin-bottom: 0.5em;">Exportly, Titan X, and HeyReach are stepping stones. The grand vision requires fixing a fundamental challenge.</p>
                 <div class="vision-stack">
                     <div class="vision-layer locked">
                         <div class="status">🔒</div>
@@ -1118,14 +979,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="highlight-box warning" style="margin-top: 20px;">
+                <div class="highlight-box warning">
                     <p><strong>Gating challenge:</strong> Source of Truth must be fixed before advanced scoring and automated routing can work. Can't automate on top of bad data.</p>
                 </div>
             </div>
             <div class="slide-number">10 / 12</div>
         </div>
 
-        <!-- SLIDE 13: The Journey -->
+        <!-- SLIDE 11: The Journey -->
         <div class="slide with-flash">
             <h2>The <span>Journey</span></h2>
             <div class="content-area">
@@ -1147,7 +1008,7 @@
                         <p>Automated Routing<br>System learns</p>
                     </div>
                 </div>
-                <div class="grid-2" style="margin-top: 30px;">
+                <div class="grid-2" style="margin-top: 1.2em;">
                     <div class="card">
                         <h4>What You'll See Next</h4>
                         <ul>
@@ -1171,7 +1032,7 @@
             <div class="slide-number">11 / 12</div>
         </div>
 
-        <!-- SLIDE 14: Q&A -->
+        <!-- SLIDE 12: Q&A -->
         <div class="slide center with-flash">
             <h1>Questions?</h1>
             <p class="subtitle">Joel Blackburn | GTM Engineering</p>
