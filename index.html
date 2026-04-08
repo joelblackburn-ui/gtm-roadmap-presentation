@@ -32,22 +32,18 @@
 
         body {
             font-family: 'Maison Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--zinc-black);
+            background: var(--zinc-tint);
             color: var(--zinc-dark);
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
+            margin: 0;
+            /* Base font size scales with viewport - smaller dimension wins */
+            font-size: min(2.2vh, 1.4vw);
         }
 
         .presentation {
             width: 100vw;
-            height: calc(100vw * 10 / 16);
-            max-height: 100vh;
-            max-width: calc(100vh * 16 / 10);
+            height: 100vh;
             position: relative;
-            background: var(--zinc-tint);
         }
 
         .slide {
@@ -56,7 +52,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            padding: 4% 5%;
+            padding: 4vh 5vw;
             display: none;
             flex-direction: column;
             background: var(--zinc-tint);
